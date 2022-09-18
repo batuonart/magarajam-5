@@ -32,7 +32,7 @@ public class SpikeMovement : MonoBehaviour
 	{
         if (shouldReturn)
         {
-            transform.position = Vector2.MoveTowards(transform.position, startPos, spikeSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, startPos, spikeSpeed * Time.deltaTime/4);
 			if (transform.position == startPos)
 			{
                 shouldReturn = false;

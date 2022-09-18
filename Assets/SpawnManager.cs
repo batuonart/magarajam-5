@@ -5,7 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject ghostPrefab;
+    public GameObject RockPrefab;
+
     public SpikeController spikeController;
+    public GameObject[]  Ground;
     int ghostAmount = 0;
     int initalGhost = 5;
     int waveNo = 1;
@@ -13,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SpawnGhosts(initalGhost);
+        Ground = GameObject.FindGameObjectsWithTag("Ground");
     }
 
     // Update is called once per frame
@@ -23,7 +27,13 @@ public class SpawnManager : MonoBehaviour
             SpawnGhosts(initalGhost++);
             waveNo++;
             Debug.Log(waveNo);
+            if (waveNo % 5 == 0)
+            {
+                RockPrefab.transform.position = Ground[Random.Range(0, Ground.Length - 1)].transform.position;
+                Instantiate(RockPrefab, RockPrefab.transform.position, RockPrefab.transform.rotation);
+            }
         }
+        
     }
 
     void SpawnGhosts(int amnt)

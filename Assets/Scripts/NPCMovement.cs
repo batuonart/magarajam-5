@@ -34,7 +34,7 @@ public class NPCMovement : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Spike"))
+		if (collision.gameObject.CompareTag("Spike") && !collision.GetComponent<SpikeMovement>().GetResetStatus())
 		{
             spawnManager.GetComponent<SpawnManager>().GhostDestroyed();
             Instantiate(particle, transform.position, transform.rotation);
