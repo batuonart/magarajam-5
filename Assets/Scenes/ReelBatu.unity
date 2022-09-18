@@ -1957,8 +1957,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8d6d7ec45ac3a4da74dc59ddbaba06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 3543641028717077739, guid: ebe65be8cb3ae4c478eeadd49c33d706, type: 3}
+  ghostPrefab: {fileID: 3543641028717077739, guid: 7f7f2ccd67302401898d81e4bc2554ae, type: 3}
+  RockPrefab: {fileID: 8834800181654467544, guid: 3547416750806254d94916ceaa1957a0, type: 3}
   spikeController: {fileID: 376608845}
+  Ground: []
 --- !u!4 &1247639290
 Transform:
   m_ObjectHideFlags: 0
