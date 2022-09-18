@@ -4,56 +4,40 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Transform target;
     public GameObject[] Ground;
     GameObject item;
+    public GameObject spawnManager;
+    public GameObject particle;
+    float ghostSpeed = 2f;
     void Start()
     {
 
-        transform.position = target.position;
-        Ground = GameObject.FindGameObjectsWithTag("Ground");
 
+
+        Ground = GameObject.FindGameObjectsWithTag("Ground");
         item = Ground[Random.Range(0, Ground.Length - 1)];
-        
+        transform.position = Ground[Random.Range(0, Ground.Length - 1)].transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-        
-
         if (transform.position != item.transform.position)
         {
-            transform.position = Vector2.MoveTowards(transform.position, item.transform.position, 1f * Time.deltaTime);
-
+            transform.position = Vector2.MoveTowards(transform.position, item.transform.position, ghostSpeed * Time.deltaTime);
         }
         else
         {
             item = Ground[Random.Range(0, Ground.Length - 1)];
-
         }
-
-
-
-
-
-
-
-
-
     }
-    IEnumerator BlinkTimer()
-    {
-        yield return new WaitForSeconds(5);
 
-    }
-    void PlaceHolder()
-    {
-
-
-        transform.position = target.transform.position;
-
-    }
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Spike"))
+		{
+          //  spawnManager.GetComponent<SpawnManager>().GhostDestroyed();
+            Instantiate(particle, transform.position, transform.rotation);
+            Destroy(gameObject);
+		}
+	}
 }
