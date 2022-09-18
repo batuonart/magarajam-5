@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject ghostPrefab;
     public GameObject RockPrefab;
+    public GameObject vergil;
     public SpikeController spikeController;
     public GameObject[]  Ground;
 
@@ -37,7 +38,13 @@ public class SpawnManager : MonoBehaviour
                 Instantiate(RockPrefab, RockPrefab.transform.position, RockPrefab.transform.rotation);
             }
         }
-        
+
+		if (waveNo > 10 && !GetComponent<AudioSource>().isPlaying)
+		{
+            vergil.SetActive(true);
+            GetComponent<AudioSource>().Play();
+        }
+
     }
 
     void SpawnGhosts(int amnt)
