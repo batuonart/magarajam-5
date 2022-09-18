@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 1247639289}
   m_Layer: 0
   m_Name: SpawnManager
-  m_TagString: Untagged
+  m_TagString: SpawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1958,6 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 3543641028717077739, guid: ebe65be8cb3ae4c478eeadd49c33d706, type: 3}
+  spikeController: {fileID: 376608845}
 --- !u!4 &1247639290
 Transform:
   m_ObjectHideFlags: 0

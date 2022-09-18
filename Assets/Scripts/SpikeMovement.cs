@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeMovement : MonoBehaviour
 {
    
-    float spikeSpeed = 10f;
+    float spikeSpeed = 15f;
     public bool moveInput = false;
     public bool shouldReturn = false;
     public bool inReset = true;

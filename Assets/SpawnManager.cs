@@ -5,17 +5,25 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject ghostPrefab;
+    public SpikeController spikeController;
     int ghostAmount = 0;
+    int initalGhost = 5;
+    int waveNo = 1;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnGhosts(5);
+        SpawnGhosts(initalGhost);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (ghostAmount <= 0 && spikeController.InputsActive())
+        {
+            SpawnGhosts(initalGhost++);
+            waveNo++;
+            Debug.Log(waveNo);
+        }
     }
 
     void SpawnGhosts(int amnt)
@@ -30,6 +38,5 @@ public class SpawnManager : MonoBehaviour
     public void GhostDestroyed()
     {
         ghostAmount--;
-
     }
 }

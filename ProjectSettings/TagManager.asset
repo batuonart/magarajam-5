@@ -8,6 +8,8 @@ TagManager:
   - Left
   - Up
   - Spike
+  - Ground
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

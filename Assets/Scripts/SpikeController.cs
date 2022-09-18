@@ -12,7 +12,7 @@ public class SpikeController : MonoBehaviour
 
     public int resettedSpikes = 0;
 
-    bool InputsActive()
+    public bool InputsActive()
     {
 		foreach (var item in upSpikes)
 		{

@@ -9,9 +9,10 @@ public class NPCMovement : MonoBehaviour
     public GameObject spawnManager;
     public GameObject particle;
     float ghostSpeed = 2f;
+
     void Start()
     {
-
+        spawnManager = GameObject.FindGameObjectWithTag("SpawnManager");
 
 
         Ground = GameObject.FindGameObjectsWithTag("Ground");
@@ -35,7 +36,7 @@ public class NPCMovement : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Spike"))
 		{
-          //  spawnManager.GetComponent<SpawnManager>().GhostDestroyed();
+            spawnManager.GetComponent<SpawnManager>().GhostDestroyed();
             Instantiate(particle, transform.position, transform.rotation);
             Destroy(gameObject);
 		}

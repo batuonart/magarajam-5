@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1271356027362813657}
   - component: {fileID: 5096875821836759815}
   - component: {fileID: 1104683581161227520}
+  - component: {fileID: 2295620520577139426}
   m_Layer: 0
   m_Name: DeathParticle
   m_TagString: Untagged
@@ -4812,3 +4813,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2295620520577139426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469036437921261702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510240ff74787eb4b86801357daff2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDelay: 2
