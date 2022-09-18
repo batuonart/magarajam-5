@@ -6,12 +6,15 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject ghostPrefab;
     public GameObject RockPrefab;
-
     public SpikeController spikeController;
     public GameObject[]  Ground;
+
     int ghostAmount = 0;
     int initalGhost = 5;
+    int ghostKilled = 0;
     int waveNo = 1;
+
+    public UIManager uIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +29,9 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnGhosts(initalGhost++);
             waveNo++;
-            Debug.Log(waveNo);
-            if (waveNo % 5 == 0)
+            uIManager.UpdateWaveText(waveNo);
+
+            if (waveNo % 3 == 0)
             {
                 RockPrefab.transform.position = Ground[Random.Range(0, Ground.Length - 1)].transform.position;
                 Instantiate(RockPrefab, RockPrefab.transform.position, RockPrefab.transform.rotation);
@@ -48,5 +52,8 @@ public class SpawnManager : MonoBehaviour
     public void GhostDestroyed()
     {
         ghostAmount--;
+        ghostKilled++;
+        uIManager.UpdateScoreText(ghostKilled);
+
     }
 }
